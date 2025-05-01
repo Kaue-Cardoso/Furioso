@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style fil*/
+/* styles.scss */
+@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Suas variáveis e estilos SCSS personalizados */
+$primary-color: #3b82f6;
+
+
+
+// .btn-custom {
+//   background-color: $primary-color;
+//   @apply text-white px-4 py-2 rounded;
+// }

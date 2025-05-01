@@ -1,0 +1,26 @@
+.containerr {
+    display: grid;
+    grid-template-columns: 2fr 1fr; // Proporção 2:1
+    gap: 16px; // Espaço entre as colunas (opcional)
+    
+    /* Definindo dimensões (pode ser qualquer container) */
+    width: 100vw;
+    height: 100vh;
+    
+    
+  
+    .left-side {
+    padding: 20px;
+    background-image: url("/assets/furia_bg.webp");
+    background-size: cover;       /* Cobrirá toda a área */
+    background-position: center;  /* Centraliza a imagem */
+    // background-repeat: no-repeat; /* Evita repetição */
+    // background-attachment: fixed; /* Opcional: fixa o background ao scroll */
+    
+    }
+  
+    .right-side {
+        // background: #e0e0e0;
+        padding: 20px;
+    }
+  }
