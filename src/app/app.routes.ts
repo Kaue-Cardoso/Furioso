@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { StoreComponent } from './components/store/store.component';
+import { ComunidadeComponent } from './components/comunidade/comunidade.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 
 export const routes: Routes = [
     {
@@ -22,6 +23,10 @@ export const routes: Routes = [
     {
       path: 'store',
       component: StoreComponent
+    },
+    {
+      path: 'comunity',
+      component: ComunidadeComponent
     },
 
 ];

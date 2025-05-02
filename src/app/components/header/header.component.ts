@@ -37,6 +37,9 @@ export class HeaderComponent {
 
   constructor(private router: Router, private route: ActivatedRoute) {}
 
+  goToComunity(){
+    this.router.navigate(['/comunity'], { relativeTo: this.route });
+  }
   goToStore() {
     this.router.navigate(['/store'], { relativeTo: this.route });
   }

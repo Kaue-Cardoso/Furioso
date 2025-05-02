@@ -1,0 +1,101 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="h-full mx-auto p-6 bg-gray-800 rounded-lg">
+    <h2 class="text-2xl font-bold mb-6 text-purple-500">Cadastro</h2>
+  
+    <div class="space-y-4">
+      <!-- Campos omitidos para brevidade (criar similar para cada campo) -->
+      <div>
+        <label class="block text-sm font-medium mb-1">CPF</label>
+        <input 
+          type="text"
+          formControlName="firstName"
+          placeholder="Nome"
+          class="w-full bg-gray-700 rounded px-3 py-2 focus:ring-2 focus:ring-purple-500"
+        >
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-1">CPF</label>
+        <input 
+          type="text"
+          formControlName="lastName"
+          placeholder="Sobrenome"
+          class="w-full bg-gray-700 rounded px-3 py-2 focus:ring-2 focus:ring-purple-500"
+        >
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-1">CPF</label>
+        <input 
+          type="text"
+          formControlName="email"
+          placeholder="email"
+          class="w-full bg-gray-700 rounded px-3 py-2 focus:ring-2 focus:ring-purple-500"
+        >
+      </div>
+      
+      <div>
+        <label class="block text-sm font-medium mb-1">CPF</label>
+        <input 
+          type="text" 
+          formControlName="cpf"
+          placeholder="000.000.000-00"
+          class="w-full bg-gray-700 rounded px-3 py-2 focus:ring-2 focus:ring-purple-500"
+        >
+        <div *ngIf="registerForm.get('cpf')?.errors?.['pattern']" class="text-red-400 text-sm">
+          Formato inválido (use 000.000.000-00)
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-1">CPF</label>
+        <input 
+          type="text"
+          formControlName="cep"
+          placeholder="cep"
+          class="w-full bg-gray-700 rounded px-3 py-2 focus:ring-2 focus:ring-purple-500"
+        >
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-1">CPF</label>
+        <input 
+          type="text"
+          formControlName="password"
+          placeholder="Senha"
+          class="w-full bg-gray-700 rounded px-3 py-2 focus:ring-2 focus:ring-purple-500"
+        >
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-sm font-medium mb-1">Foto de Perfil</label>
+        <input 
+          type="file" 
+          (change)="onFileSelected($event)"
+          accept="image/*"
+          class="block w-full text-sm text-gray-400
+            file:mr-4 file:py-2 file:px-4
+            file:rounded-lg file:border-0
+            file:text-sm file:font-semibold
+            file:bg-purple-600 file:text-white
+            hover:file:bg-purple-700"
+        >
+        <div *ngIf="selectedImage" class="mt-2">
+          <img [src]="selectedImage" class="h-20 w-20 rounded-full object-cover">
+        </div>
+      </div>
+  
+      <!-- Repetir para outros campos -->
+  
+      <button 
+        type="submit" 
+        [disabled]="registerForm.invalid"
+        class="w-full bg-purple-600 hover:bg-purple-700 py-2 rounded transition-colors disabled:opacity-10"
+      >
+        Cadastrar
+      </button>
+  
+      <div *ngIf="errorMessage" class="text-red-400 text-center">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </form>

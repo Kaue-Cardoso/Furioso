@@ -1,9 +1,5 @@
 @use "variables" as vars; 
 
-main{
-    // background-image: url(/assets/bg_black.jpg);
-}
-
 article{
     min-height: 160px;
     cursor: pointer;
@@ -16,8 +12,6 @@ article{
     }
     .card_title{
         padding: 4px;
-        // margin-bottom: 8px;
-        // background-color: rgba(46, 48, 49, 0.425);
         color: vars.$primary-color;
         font-size: 20px;
         font-weight: 700;
@@ -28,8 +22,8 @@ article{
 
 .shadow-interno {
         
-    border-radius: 8px;
-    box-shadow: inset 0 -100px 30px rgba(0, 0, 0, 0.3); /* Sombra interna na parte inferior */
+    // border-radius: 8px;
+    box-shadow: inset 0 -100px 30px rgba(0, 0, 0, 0.7); /* Sombra interna na parte inferior */
     transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Transição suave */
   }
   

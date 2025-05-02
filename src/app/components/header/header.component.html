@@ -1,15 +1,13 @@
 
 <header class="app-header relative grid max-lg:grid-cols-1 lg:grid-cols-3 items-center">
     
-    <!-- Seção esquerda - visível em desktop, oculta/mostrada em mobile -->
     <section class="hidden order-2 lg:order-1 lg:grid lg:grid-cols-2 lg:justify-items-center mobile-menu-items"
              [class.hidden]="isMobileView && !isMenuOpen"
              [class.grid]="isMenuOpen">
-        <a class="nav-link" routerLink="/news">NOVIDADES</a>
-        <a class="nav-link" (click)="goToStore()">LOJA</a>
+        <a class="nav-link cursor-pointer" routerLink="/news">NOVIDADES</a>
+        <a class="nav-link cursor-pointer" (click)="goToStore()">LOJA</a>
     </section>
     
-    <!-- Logo -->
     <section class="flex justify-center order-1 lg:order-2 ">
         <img (click)="handleLogoClick()" 
              class="py-4 cursor-pointer md:cursor-default" 
@@ -19,25 +17,10 @@
              priority>
     </section>
     
-    <!-- Seção direita - visível em desktop, oculta/mostrada em mobile -->
     <section class="hidden order-3 lg:grid lg:grid-cols-2 lg:justify-items-center mobile-menu-items"
              [class.hidden]="isMobileView && !isMenuOpen"
              [class.grid]="isMenuOpen">
-        <a class="nav-link" routerLink="/community">COMUNIDADE</a>
+        <a class="nav-link cursor-pointer" (click)="goToComunity()">COMUNIDADE</a>
         <a class="nav-link cursor-pointer" (click)="goToLogin()">Login\Register</a>
     </section>
 </header>
-
-<!-- <header  class="app-header md:grid md:grid-cols-3 bg-gray-800 items-center">
-    <section class="hidden md:grid md:grid-cols-2 md:justify-items-center">
-        <a href="">NOVIDADES</a>
-        <a href="">LOJA</a>
-    </section>
-    <section class="justify-items-center md:order-none order-1">
-        <img (click)="toggleMenu()" class="py-4" ngSrc="/assets/furia_icon.svg" width="50" height="50" priority>
-    </section>
-    <section class="hidden md:grid md:grid-cols-2 md:justify-items-center">
-        <a href="">COMUNIDADE</a>
-        <a href="">PERFIL</a>
-    </section>
-</header> -->

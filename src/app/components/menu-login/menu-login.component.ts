@@ -14,5 +14,8 @@ export class MenuLoginComponent {
   goToRegister() {
     this.router.navigate(['/register'], { relativeTo: this.route });
   }
+  goToHome() {
+    this.router.navigate([''], { relativeTo: this.route });
+  }
   
 }

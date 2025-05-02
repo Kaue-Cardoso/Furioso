@@ -1,0 +1,15 @@
+:host {
+    display: block;
+    height: calc(100vh - 80px); // Ajuste para altura da header
+  }
+  
+  .flex {
+    height: 100%;
+  }
+  
+  .chat-area {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }

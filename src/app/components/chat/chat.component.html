@@ -1,0 +1,44 @@
+<div class="h-full flex flex-col">
+
+
+  <div class="border-b border-gray-800 p-4">
+    <h2 class="font-bold text-lg"># {{ channel.name }}</h2>
+    <p class="text-gray-400 text-sm">{{ channel.description }}</p>
+  </div>
+
+  <div class="chat-messages flex-1 overflow-y-auto pr-2 space-y-4">
+    <div *ngFor="let message of messages" class="">
+      <div *ngIf="message.content.trim()" class="flex gap-3"> <!-- Só mostra se tiver conteúdo -->
+
+        <!-- Adicione fallbacks -->
+        <img [src]="message.user?.profileImage || 'assets/default-profile.png'" class="w-10 h-10 rounded-full">
+
+        <div>
+          <div *ngIf="message.user?.name" class="text-gray-400">
+            {{ message.user?.name }}
+          </div>
+          <div [ngClass]="{'bg-purple-600': message.userId === currentUserId}">
+            {{ message.content }}
+            <div class="text-xs text-gray-300 mt-1">
+              {{ (message.timestamp || '') | date:'HH:mm' }}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Input de Mensagem -->
+  <div class="mt-4">
+    <form (ngSubmit)="sendMessage()" class="flex gap-2">
+      <input type="text" [(ngModel)]="newMessage" name="newMessage" placeholder="Escreva sua mensagem..."
+        class="flex-1 bg-gray-800 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-purple-500">
+      <button type="submit" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded-lg text-white transition-colors">
+        Enviar
+      </button>
+    </form>
+  </div>
+
+
+</div>

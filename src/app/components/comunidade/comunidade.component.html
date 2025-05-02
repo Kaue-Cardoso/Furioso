@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<div class="flex h-full bg-gray-900">
+  <!-- Barra Lateral de Categorias -->
+  <div class="w-64 bg-gray-800 p-4 overflow-y-auto">
+    <h2 class="text-xl font-bold mb-6 text-purple-500">Comunidade FURIA</h2>
+    
+    <div class="space-y-4">
+      <div *ngFor="let category of categories" class="mb-4">
+        <div 
+          (click)="toggleCategory(category.id)"
+          class="flex items-center justify-between cursor-pointer p-2 hover:bg-gray-700 rounded"
+        >
+          <div class="flex items-center gap-2">
+            <img [src]="category.icon" class="w-5 h-5" *ngIf="category.icon">
+            <span>{{ category.name }}</span>
+          </div>
+          <span class="text-gray-400">
+            {{ selectedCategory === category.id ? '▼' : '►' }}
+          </span>
+        </div>
+
+        <!-- Canais -->
+        <div 
+          *ngIf="selectedCategory === category.id" 
+          class="ml-6 mt-2 space-y-2"
+        >
+          <a
+            *ngFor="let channel of category.channels"
+            (click)="selectChannel(channel)"
+            class="block text-gray-300 hover:text-white p-1 rounded hover:bg-gray-700 cursor-pointer"
+          >
+            # {{ channel.name }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Área do Chat -->
+  <div class="flex-1">
+    <app-chat *ngIf="activeChannel" [channel]="activeChannel"></app-chat>
+    <div *ngIf="!activeChannel" class="flex items-center justify-center h-full text-gray-400">
+      Selecione um canal para começar a conversar
+    </div>
+  </div>
+</div>
