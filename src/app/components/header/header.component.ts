@@ -1,12 +1,47 @@
-import { NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { Component, HostListener } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  isMenuOpen = false;
+  isMobileView = false;
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.checkViewport();
+  }
+
+  ngOnInit() {
+    this.checkViewport();
+  }
+
+  checkViewport() {
+    this.isMobileView = window.innerWidth < 1024;
+    if (!this.isMobileView) {
+      this.isMenuOpen = false;
+    }
+  }
+
+  handleLogoClick() {
+    if (this.isMobileView) {
+      this.isMenuOpen = !this.isMenuOpen;
+    }
+  }
+
+
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
+  goToStore() {
+    this.router.navigate(['/store'], { relativeTo: this.route });
+  }
+  
+  goToLogin() {
+    this.router.navigate(['/login'], { relativeTo: this.route });
+  }
 }

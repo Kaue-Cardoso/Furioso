@@ -1,26 +1,32 @@
-.containerr {
+@use "variables" as vars; 
+.grider {
     display: grid;
-    grid-template-columns: 2fr 1fr; // Proporção 2:1
-    gap: 16px; // Espaço entre as colunas (opcional)
-    
-    /* Definindo dimensões (pode ser qualquer container) */
+    grid-template-columns: 2fr 1fr;
     width: 100vw;
     height: 100vh;
-    
-    
-  
-    .left-side {
-    padding: 20px;
-    background-image: url("/assets/furia_bg.webp");
-    background-size: cover;       /* Cobrirá toda a área */
-    background-position: center;  /* Centraliza a imagem */
-    // background-repeat: no-repeat; /* Evita repetição */
-    // background-attachment: fixed; /* Opcional: fixa o background ao scroll */
-    
-    }
-  
-    .right-side {
-        // background: #e0e0e0;
-        padding: 20px;
+  }
+.emphasis{
+    color: vars.$primary-color;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.5rem;
+    span{
+        font-family: vars.$font-special;
     }
   }
+
+@media (max-width: 1023px){
+    .grider{
+        display: inline-block;
+
+        :nth-child(1){
+            height: 100vh;
+        }
+        
+        // grid-template-columns: 1fr; // Define uma única coluna
+        // grid-template-rows: auto auto;
+    }
+    .emphasis{
+        font-size: 1.5rem;
+    }
+}

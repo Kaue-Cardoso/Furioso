@@ -1,0 +1,6 @@
+@use "variables" as vars; 
+.emphasis{
+    color: vars.$secondary-color;
+    font-weight: 700;
+    font-family: vars.$font-special;
+  }
