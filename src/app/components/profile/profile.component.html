@@ -1,0 +1,56 @@
+<app-header></app-header>
+
+<main class="grid lg:grid-cols-3">
+  <div class="sizerr">
+    <div class="p-4 h-full bg-zinc-100">
+      <h1 class="text-2xl font-bold mb-6 text-zinc-900">Meu Perfil</h1>
+
+      <div *ngIf="user" class="space-y-4">
+        <div class="flex items-center gap-4">
+          <img [src]="user.profileImage" class="w-20 h-20 rounded-full border-2 border-purple-500">
+          <div>
+            <h2 class="text-xl text-zinc-900 font-semibold">{{ user.firstName }} {{ user.lastName }}</h2>
+            <p class="text-zinc-900">{{ user.email }}</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 mt-6">
+          <div class="p-4 space-y-4 rounded-lg">
+            <div>
+              <h3 class="text-sm font-bold text-zinc-900 mb-2">Informações Pessoais</h3>
+              <p class="text-sm">CPF: {{ user.cpf }}</p>
+              <p class="text-sm">Telefone: {{ user.tel }}</p>
+            </div>
+
+            <div>
+              <h3 class="text-sm font-bold text-zinc-900 mb-2">Endereço</h3>
+              <p class="text-sm">CEP: {{ user.cep }}</p>
+              <p class="text-sm">Rua: {{ user.street }}</p>
+              <p class="text-sm">Cidade: {{ user.city }}</p>
+            </div>
+          </div>
+
+          <div class=" px-4">
+            <h3 class="text-sm font-bold text-zinc-900 mb-2">Opções de Conta</h3>
+            <p class="text-sm cursor-pointer hover:text-amber-500 transition-colors">
+              Alterar Senha
+            </p>
+            <p class="text-sm cursor-pointer hover:text-amber-500 transition-colors">
+              Alterar Foto de Perfil
+            </p>
+            <p class="text-sm cursor-pointer hover:text-red-500 transition-colors">
+              Apagar a Conta
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="!user" class="text-center py-12 text-gray-400">
+        Nenhum usuário logado
+      </div>
+    </div>
+  </div>
+  <div class="right_side lg:col-span-2">
+
+  </div>
+</main>

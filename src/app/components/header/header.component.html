@@ -1,5 +1,5 @@
 
-<header class="app-header relative grid max-lg:grid-cols-1 lg:grid-cols-3 items-center">
+<header class="app-header  relative grid max-lg:grid-cols-1 lg:grid-cols-3 items-center">
     
     <section class="hidden order-2 lg:order-1 lg:grid lg:grid-cols-2 lg:justify-items-center mobile-menu-items"
              [class.hidden]="isMobileView && !isMenuOpen"
@@ -21,6 +21,17 @@
              [class.hidden]="isMobileView && !isMenuOpen"
              [class.grid]="isMenuOpen">
         <a class="nav-link cursor-pointer" (click)="goToComunity()">COMUNIDADE</a>
-        <a class="nav-link cursor-pointer" (click)="goToLogin()">Login\Register</a>
+        <div class="flex items-center gap-4">
+            <a *ngIf="authService.isLoggedIn()" 
+               class="nav-link cursor-pointer hover:text-purple-400 transition-colors"
+               (click)="goToProfile()">
+              Perfil
+            </a>
+          
+            <a class="nav-link cursor-pointer hover:text-purple-400 transition-colors" 
+               (click)="handleAuthAction()">
+              {{ authService.isLoggedIn() ? 'Sair' : 'Entrar' }}
+            </a>
+          </div>
     </section>
 </header>

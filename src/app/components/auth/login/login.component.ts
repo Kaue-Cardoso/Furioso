@@ -11,7 +11,7 @@ import { AuthService } from '../../../services/auth.service';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  loginForm: FormGroup; // Declare sem inicializar
+  loginForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
@@ -31,8 +31,7 @@ export class LoginComponent {
         const user = this.authService.login(email!, password!);
         
         if (user) {
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.router.navigate(['']);
+          this.router.navigate(['/']);
         } else {
           this.errorMessage = 'Email ou senha inválidos';
         }

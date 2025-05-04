@@ -1,3 +1,15 @@
+@use "variables" as vars; 
+
+.emphasis{
+    font-family: vars.$font-special;
+}
+
 .correct_size{
     height: calc(100vh - 82px);
+}
+
+@media (max-width: 1023px){
+    .correct_size{
+        height: 100%
+    }   
 }
