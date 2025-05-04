@@ -31,3 +31,5 @@ npm install ws
 
 ### 5.Execute o servidor:
 node server.js
+
+![image](https://github.com/user-attachments/assets/d2302237-44e9-4635-b68d-8cf84710f954)
