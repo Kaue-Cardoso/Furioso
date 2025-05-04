@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style fil*/
+/* styles.scss */
+@import "https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&display=swap";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme{
+    --color-midnight: #121063
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}

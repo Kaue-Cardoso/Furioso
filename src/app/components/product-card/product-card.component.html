@@ -1,0 +1,23 @@
+
+<div class="relative group bg-slate-100">
+
+    <div class="overflow-hidden">
+
+      <img 
+        [src]="product.mainImage" 
+        [alt]="product.name"
+        class="w-full object-cover transition-opacity duration-300 group-hover:opacity-0"
+      >
+
+      <img 
+        [src]="product.secondaryImage" 
+        [alt]="product.name + ' - vista traseira'"
+        class="absolute top-0 left-0 w-full object-cover  opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      >
+    </div>
+  
+    <div class="py-2">
+      <h3 class="px-2">{{ product.name }}</h3>
+      <p class="px-2"><b>{{ product.price | currency:'BRL' }}</b></p>
+    </div>
+  </div>

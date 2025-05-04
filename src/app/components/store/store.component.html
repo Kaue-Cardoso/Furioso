@@ -1,0 +1,17 @@
+<app-header></app-header>
+
+<main>
+    <section>
+        <div>
+            <picture>
+                <source media="(min-width: 1024px)" srcset="assets/furia_adidas.webp">
+                <img src="assets/furia_adidas02.webp" alt="Imagem Responsiva" class="w-full h-auto object-cover">
+            </picture>
+        </div>
+    </section>
+    <section class="grid lg:grid-cols-4 py-8 px-2">
+        <ng-container *ngFor="let product of products">
+            <product-card class="m-1 mt-2" [product]="product"></product-card>
+          </ng-container>
+    </section>
+</main>

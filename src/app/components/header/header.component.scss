@@ -1,0 +1,64 @@
+.app-header {
+    // border-bottom: 2px solid black;
+    font-weight: 500;
+    font-size: 12px;
+    background-image: url(/assets/bg_black.jpg);
+    border-bottom: 1px solid white;
+
+
+
+    .nav-link {
+        @apply text-slate-100 hover:text-amber-500 transition-colors duration-300 px-4 py-2;
+    }
+
+    /* Estilo para o menu mobile */
+    .mobile-menu-items {
+        &.hidden {
+            display: none;
+          }
+        
+          &:not(.grid) {
+            @media (max-width: 1023px) {
+              position: absolute;
+              top: 100%;
+              left: 0;
+              right: 0;
+              background-color: rgba(31, 41, 55, 0.95);
+              z-index: 100;
+              padding: 1rem 0;
+              grid-template-columns: repeat(2, 1fr);
+              justify-items: center;
+              gap: 1rem;
+              /* Transição suavizada */
+              animation: smoothFadeIn 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+            }
+          }
+        }
+        
+        @keyframes smoothFadeIn {
+          0% {
+            opacity: 0;
+            transform: translateY(-15px);
+          }
+          20% {
+            opacity: 0.2;
+            transform: translateY(-12px);
+          }
+          40% {
+            opacity: 0.4;
+            transform: translateY(-9px);
+          }
+          60% {
+            opacity: 0.6;
+            transform: translateY(-6px);
+          }
+          80% {
+            opacity: 0.8;
+            transform: translateY(-3px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+    }

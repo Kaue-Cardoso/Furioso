@@ -1,0 +1,69 @@
+<app-header></app-header>
+
+<div class="flex correct_size bg-gray-900">
+
+  <!-- Menu Lateral -->
+  <div class="relative">
+    <div class="absolute -right-5 top-4 z-10">
+      <button (click)="toggleMenu()" class="p-2 bg-gray-700 rounded-full hover:bg-purple-600 transition-all">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            [attr.d]="isMenuCollapsed ? 'M9 5l7 7-7 7' : 'M15 19l-7-7 7-7'" />
+        </svg>
+      </button>
+    </div>
+
+    <div [class.w-64]="!isMenuCollapsed" [class.w-0]="isMenuCollapsed"
+      class="bg-gray-800 h-full overflow-hidden transition-all duration-300">
+      <div class="p-4 w-64"> <!-- Container interno com largura fixa -->
+        <h2 class="text-xl font-bold mb-6 text-purple-500">Comunidade FURIA</h2>
+
+        <div class="space-y-4">
+
+          <div *ngFor="let category of categories" class="mb-4">
+            <div (click)="toggleCategory(category.id)"
+              class="flex items-center justify-between cursor-pointer p-2 hover:bg-gray-700 rounded">
+              <div class="flex items-center gap-2">
+                <img [src]="category.icon" class="w-5 h-5" *ngIf="category.icon">
+                <span>{{ category.name }}</span>
+              </div>
+              <span class="text-gray-400">
+                {{ selectedCategory === category.id ? '▼' : '►' }}
+              </span>
+            </div>
+            <!-- Canais -->
+            <div *ngIf="selectedCategory === category.id" class="ml-6 mt-2 space-y-2">
+              <a *ngFor="let channel of category.channels" (click)="selectChannel(channel)"
+                class="block text-gray-300 hover:text-white p-1 rounded hover:bg-gray-700 cursor-pointer">
+                # {{ channel.name }}
+              </a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="w-full h-full">
+
+
+    <div class="grid px-6 py-4 gap-4 h-full min-h-0" [class.lg:grid-cols-2]="shouldShowStream()">
+      <div *ngIf="shouldShowStream()" class="">
+        <app-stream></app-stream>
+      </div>
+    
+      <div [class.lg:col-span-2]="!shouldShowStream()" class="flex flex-col h-full min-h-0">
+        <app-chat class="flex-1 min-h-0" *ngIf="activeChannel" [channel]="activeChannel"></app-chat>
+        <div *ngIf="!activeChannel" class="flex items-center justify-center text-gray-400">
+          Selecione um canal para começar a conversar
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
