@@ -1,6 +1,6 @@
-<main class="grid lg:grid-cols-2 h-screen">
+<main class="grid lg:grid-cols-3 h-screen">
 
-  <section class="bg-[url(/assets/furia_bg4.jpg)] bg-cover bg-center h-screen  bg-no-repeat">
+  <section class="bg-[url(/assets/furia_bg4.jpg)] lg:col-span-2 bg-cover bg-center h-screen  bg-no-repeat">
 
     <div class="grid grid-rows-4 max-lg:grid-rows-4 gap-4 h-full">
       <div> </div>
@@ -18,13 +18,13 @@
   </section>
 
 
-  <section>
+  <section class="flex items-center justify-center">
     <div class="p-4">
       <div class="flex justify-center">
         <img class="h-auto w-auto" src="/assets/furia_logo.svg" alt="Your Company">
       </div>
 
-      <div class="mt-10">
+      <div class="mt-5">
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-6" action="#" method="POST">
 
 
@@ -48,16 +48,18 @@
             </article>
           </div>
 
+          <!-- email -->
           <div class="grid grid-cols-1 lg:grid-cols-2">
             <article class="px-1">
               <label for="email" class="block text-sm/6 font-medium text-gray-900">Email</label>
               <div class="mt-2">
-                <input type="text" formControlName="email" placeholder="email" required
+                <input type="text" formControlName="email" placeholder="Ex: joao@email.com" required
                   class="block w-full rounded-md bg-slate-900 px-3 py-1.5 text-base text-slate-200 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
  
               </div>
             </article>
   
+            <!-- cpf -->
             <article class="px-1">
               <label for="cpf" class="block text-sm/6 font-medium text-gray-900">CPF</label>
               <div class="mt-2">
@@ -74,45 +76,73 @@
 
           <div class="grid grid-cols-1 lg:grid-cols-2">
 
+
+            <!-- Telefone -->
+            <article class="px-1">
+              <label for="tel" class="block text-sm/6 font-medium text-gray-900">Telefone</label>
+              <div class="mt-2">
+                <input type="text" formControlName="tel" placeholder="Ex: 459899999"
+                  class="block w-full rounded-md bg-slate-900 px-3 py-1.5 text-base text-slate-200 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+              </div>
+            </article>
+
             <!-- CEP -->
           <article class="px-1">
             <label for="cep" class="block text-sm/6 font-medium text-gray-900">CEP</label>
             <div class="mt-2">
-              <input type="text" formControlName="cep" placeholder="cep" required
+              <input type="text" formControlName="cep" placeholder="Ex: 85852-110"
                 class="block w-full rounded-md bg-slate-900 px-3 py-1.5 text-base text-slate-200 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
    
             </div>
           </article>
 
-          <!-- Rua -->
-          <article class="px-1">
-            <label for="street" class="block text-sm/6 font-medium text-gray-900">Rua</label>
-            <div class="mt-2">
-              <input type="text" formControlName="street" placeholder="Rua" required
-                class="block w-full rounded-md bg-slate-900 px-3 py-1.5 text-base text-slate-200 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
-   
-            </div>
-
-
-          </article>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-2">
+
+             <!-- Rua -->
+          <article class="px-1">
+            <label for="street" class="block text-sm/6 font-medium text-gray-900">Rua</label>
+            <div class="mt-2">
+              <input type="text" formControlName="street" placeholder="Ex: Xavier da Silva"
+                class="block w-full rounded-md bg-slate-900 px-3 py-1.5 text-base text-slate-200 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+  
+            </div>
+          </article>
+
+            <!-- Cidade -->
             <article class="px-1">
-              <label for="email" class="block text-sm/6 font-medium text-gray-900">Email</label>
+              <label for="City" class="block text-sm/6 font-medium text-gray-900">Cidade</label>
               <div class="mt-2">
-                <input type="text" formControlName="password" placeholder="Senha" required
+                <input type="text" formControlName="city" placeholder="Ex: Foz do iguaçu"
+                  class="block w-full rounded-md bg-slate-900 px-3 py-1.5 text-base text-slate-200 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
+        
+              </div>
+            </article>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            <!-- senha -->
+            <article class="px-1">
+              <label for="password" class="block text-sm/6 font-medium text-gray-900">Senha</label>
+              <div class="mt-2">
+                <input type="password" formControlName="password" placeholder="Senha" required
                   class="block w-full rounded-md bg-slate-900 px-3 py-1.5 text-base text-slate-200 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
         
               </div>
             </article>
 
+            <!-- confirmação -->
             <article class="px-1">
-              <label for="email" class="block text-sm/6 font-medium text-gray-900">Email</label>
+              <label for="confirmPassword" class="block text-sm/6 font-medium text-gray-900">Confirme a Senha</label>
               <div class="mt-2">
-                <input type="text" formControlName="password" placeholder="Senha" required
+                <input type="password" formControlName="confirmPassword" placeholder="Confirme sua senha" required
                   class="block w-full rounded-md bg-slate-900 px-3 py-1.5 text-base text-slate-200 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6">
-        
+              </div>
+              <!-- Mensagem de erro -->
+              <div *ngIf="registerForm.hasError('passwordMismatch') && registerForm.get('confirmPassword')?.touched" 
+                   class="text-red-500 text-xs mt-1">
+                As senhas não coincidem
               </div>
             </article>
           </div>
@@ -121,7 +151,7 @@
           <div class="mb-4">
             <label class="">Foto de Perfil</label>
             <input type="file" (change)="onFileSelected($event)" accept="image/*" class="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold 
-        file:bg-purple-600 file:text-white hover:file:bg-purple-700">
+        file:bg-amber-500 file:text-white hover:file:bg-amber-600">
             <div *ngIf="selectedImage" class="mt-2">
               <img [src]="selectedImage" class="h-20 w-20 rounded-full object-cover">
             </div>

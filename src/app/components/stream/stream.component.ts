@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Channel } from '../../models/channel';
 
 @Component({
   selector: 'app-stream',
@@ -9,38 +10,35 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   templateUrl: './stream.component.html',
   styleUrl: './stream.component.scss'
 })
-export class StreamComponent {
+export class StreamComponent implements OnChanges {
+  @Input() channel: Channel | null = null;
 
-  selectedPlatform: 'twitch' | 'youtube' = 'twitch';
-  streamId = '';
   embedUrl?: SafeResourceUrl;
 
   constructor(private sanitizer: DomSanitizer) {}
 
-  loadStream() {
-    if (!this.streamId) return;
+  ngOnChanges(): void {
+    if (!this.channel || !this.channel.streamUrl) return;
 
-    let url: string;
-    const sanitizedId = this.extractStreamId();
-
-    if (this.selectedPlatform === 'twitch') {
-      url = `https://player.twitch.tv/?channel=${sanitizedId}&parent=${document.location.hostname}`;
-    } else {
-      url = `https://www.youtube.com/embed/${sanitizedId}`;
+    const embed = this.extractEmbedUrl(this.channel.streamUrl);
+    if (embed) {
+      this.embedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(embed);
     }
-
-    this.embedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
-  private extractStreamId(): string {
-    if (this.selectedPlatform === 'twitch') {
-      // Extrai o nome do canal de URLs como: https://www.twitch.tv/nomedocanal
-      return this.streamId.split('/').pop() || this.streamId;
+  private extractEmbedUrl(url: string): string | null {
+    if (url.includes('twitch.tv')) {
+      const channelName = url.split('/').pop();
+      return `https://player.twitch.tv/?channel=${channelName}&parent=${location.hostname}`;
     }
-    
-    // Extrai ID de URLs do YouTube: https://youtu.be/ID ou https://www.youtube.com/watch?v=ID
-    const match = this.streamId.match(/v=([^&]+)/);
-    return match ? match[1] : this.streamId;
-  }
 
+    if (url.includes('youtube.com') || url.includes('youtu.be')) {
+      const match = url.match(/(?:v=|youtu\.be\/)([^&]+)/);
+      if (match && match[1]) {
+        return `https://www.youtube.com/embed/${match[1]}`;
+      }
+    }
+
+    return null;
+  }
 }

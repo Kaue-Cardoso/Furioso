@@ -1,0 +1,16 @@
+@use "variables" as vars; 
+.emphasis{
+    font-family: vars.$font-special;
+}
+.sizerr{
+    height: calc(100vh - 82px);
+}
+
+
+
+.right_side{
+    background-image: url("/assets/furia_bg3.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

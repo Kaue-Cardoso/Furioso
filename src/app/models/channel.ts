@@ -6,4 +6,6 @@ export interface Channel {
     description?: string;
     isPrivate: boolean;
     messages: Message[];
+    streamUrl?: string;
+
   }
