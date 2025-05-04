@@ -1,9 +1,9 @@
-<main class="grider gap-2">
+<main class="grid lg:grid-cols-2 h-screen gap-2">
 
 
-    <section class="bg-[url(/assets/furia_bg4.jpg)] bg-cover bg-center bg-no-repeat">
+    <section class="bg-[url(/assets/furia_bg4.jpg)] bg-cover bg-center h-screen  bg-no-repeat">
 
-        <div class="grid grid-rows-4 max-lg:grid-rows-2 gap-4 h-full">
+        <div class="grid grid-rows-4 max-lg:grid-rows-4 gap-4 h-full">
             <div> </div>
             <div> </div>
             <div class="grid  grid-rows-subgrid px-16">
@@ -21,7 +21,7 @@
 
     <section class="">
         <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
-            <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <div class="">
                 <img class="mx-auto h-10 w-auto" src="/assets/furia_logo.svg" alt="Your Company">
             </div>
 
@@ -71,7 +71,7 @@
 
                 <p class="mt-10 text-center text-sm/6 text-gray-500">
                     Não tem conta ?
-                    <span
+                    <span (click)="register()"
                         class="font-semibold text-gray-900 hover:text-amber-500">Registrar-se</span>
                 </p>
             </div>

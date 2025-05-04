@@ -4,7 +4,7 @@
     <section class="hidden order-2 lg:order-1 lg:grid lg:grid-cols-2 lg:justify-items-center mobile-menu-items"
              [class.hidden]="isMobileView && !isMenuOpen"
              [class.grid]="isMenuOpen">
-        <a class="nav-link cursor-pointer" routerLink="/news">NOVIDADES</a>
+        <a class="nav-link cursor-pointer" (click)="goToHome()">NOVIDADES</a>
         <a class="nav-link cursor-pointer" (click)="goToStore()">LOJA</a>
     </section>
     

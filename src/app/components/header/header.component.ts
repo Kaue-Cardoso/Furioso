@@ -47,4 +47,8 @@ export class HeaderComponent {
   goToLogin() {
     this.router.navigate(['/login'], { relativeTo: this.route });
   }
+
+  goToHome(){
+    this.router.navigate([''], { relativeTo: this.route });
+  }
 }

@@ -11,12 +11,37 @@ export const CATEGORIES: Category[] = [
       {
         id: 'cs-1',
         name: 'partidas-ao-vivo',
+        description: 'Acompanhe ao vivo a transmissao Oficial',
         isPrivate: false,
         messages: []
       },
       {
         id: 'cs-2',
         name: 'comunidade',
+        description: 'Interaja com outros torcedores ',
+        isPrivate: false,
+        messages: []
+      }
+    ]
+  },
+  {
+    id: 'lol',
+    name: 'League-Of-Legends',
+    game: 'LOL',
+    description: 'Chats sobre o time de LOL da FURIA',
+    icon: 'assets/icons/lol.webp',
+    channels: [
+      {
+        id: 'lol-1',
+        name: 'partidas-ao-vivo',
+        description: 'Acompanhe ao vivo a transmissao Oficial',
+        isPrivate: false,
+        messages: []
+      },
+      {
+        id: 'lol-2',
+        name: 'comunidade',
+        description: 'Interaja com outros torcedores ',
         isPrivate: false,
         messages: []
       }
@@ -30,8 +55,9 @@ export const CATEGORIES: Category[] = [
     icon: 'assets/icons/suggestions.png',
     channels: [
       {
-        id: 'rec-1',
+        id: 'rec-2',
         name: 'geral',
+        description: 'Envie sugestões para a organização',
         isPrivate: false,
         messages: []
       }

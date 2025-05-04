@@ -16,7 +16,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class ChatComponent implements OnChanges, OnInit, OnDestroy { // Implemente todas as interfaces
   @Input() channel!: Channel;
-  @Input() currentUserId!: string;
+  currentUserId!: string;
   
   messages: Message[] = [];
   newMessage = '';
@@ -34,8 +34,16 @@ export class ChatComponent implements OnChanges, OnInit, OnDestroy { // Implemen
   }
 
   ngOnInit() {
+    // Obtenha o ID do usuário logado diretamente do AuthService
+    const user = this.authService.getCurrentUser();
+    this.currentUserId = user?.id?.toString() || ''; // Converta para string
+    
+    console.log('Current User ID:', this.currentUserId); // Verifique no console
+    
     this.messageSub = this.chatService.currentChannelMessages.subscribe(
-      messages => this.messages = messages.filter(m => m.content.trim() !== '') // Filtra vazias
+      messages => {
+        this.messages = messages.filter(m => m.content.trim() !== '');
+      }
     );
   }
 

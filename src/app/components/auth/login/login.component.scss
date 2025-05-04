@@ -1,10 +1,5 @@
 @use "variables" as vars; 
-.grider {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    width: 100vw;
-    height: 100vh;
-  }
+
 .emphasis{
     color: vars.$primary-color;
     text-align: center;
@@ -16,16 +11,6 @@
   }
 
 @media (max-width: 1023px){
-    .grider{
-        display: inline-block;
-
-        :nth-child(1){
-            height: 100vh;
-        }
-        
-        // grid-template-columns: 1fr; // Define uma única coluna
-        // grid-template-rows: auto auto;
-    }
     .emphasis{
         font-size: 1.5rem;
     }

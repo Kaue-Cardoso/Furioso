@@ -39,6 +39,9 @@ export class RegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       cpf: ['', [Validators.required, Validators.pattern(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/)]],
       cep: ['', [Validators.required, Validators.pattern(/^\d{5}-\d{3}$/)]],
+      street: ['', Validators.required],
+      city: ['', Validators.required],
+      number: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
